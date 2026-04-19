@@ -1,9 +1,69 @@
+'use client';
+
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
+
+const contactSchema = z.object({
+  name: z.string().min(2, 'Imię musi mieć co najmniej 2 znaki'),
+  email: z.string().email('Nieprawidłowy adres email'),
+  message: z.string().min(10, 'Wiadomość musi mieć co najmniej 10 znaków'),
+});
+
+type ContactFormData = z.infer<typeof contactSchema>;
+
 export function Contact() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<ContactFormData>({ resolver: zodResolver(contactSchema) });
+
+  const onSubmit = async (data: ContactFormData) => {
+    // TODO: implement form submission
+    console.log(data);
+  };
+
   return (
     <section id="contact" className="py-20">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 max-w-lg">
         <h2 className="text-3xl font-bold mb-8 text-center">Kontakt</h2>
-        <p className="text-center text-muted-foreground">[Placeholder - formularz kontaktowy]</p>
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
+          <div>
+            <input
+              {...register('name')}
+              placeholder="Imię i nazwisko"
+              className="w-full px-4 py-2 border rounded-md bg-background"
+            />
+            {errors.name && <p className="text-sm text-red-500 mt-1">{errors.name.message}</p>}
+          </div>
+          <div>
+            <input
+              {...register('email')}
+              placeholder="Email"
+              className="w-full px-4 py-2 border rounded-md bg-background"
+            />
+            {errors.email && <p className="text-sm text-red-500 mt-1">{errors.email.message}</p>}
+          </div>
+          <div>
+            <textarea
+              {...register('message')}
+              placeholder="Wiadomość"
+              rows={5}
+              className="w-full px-4 py-2 border rounded-md bg-background resize-none"
+            />
+            {errors.message && (
+              <p className="text-sm text-red-500 mt-1">{errors.message.message}</p>
+            )}
+          </div>
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="px-6 py-2 bg-primary text-primary-foreground rounded-md hover:opacity-90 disabled:opacity-50"
+          >
+            {isSubmitting ? 'Wysyłanie...' : 'Wyślij wiadomość'}
+          </button>
+        </form>
       </div>
     </section>
   );
