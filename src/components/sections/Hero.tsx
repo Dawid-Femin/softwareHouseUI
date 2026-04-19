@@ -12,7 +12,7 @@ export function Hero() {
   const benefits = [t('benefit1'), t('benefit2'), t('benefit3'), t('benefit4')];
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-blue-600 via-blue-700 to-blue-900 text-white">
+    <section className="relative overflow-hidden bg-gradient-to-br from-blue-600 via-blue-700 to-blue-900 text-white mx-4 rounded-[2.5rem]">
       <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
 
       <div className="container mx-auto px-4 py-16 md:py-24 relative">
@@ -76,7 +76,7 @@ export function Hero() {
               <div className="absolute -left-4 top-12 w-28 h-28 animate-float-icon-1">
                 <Image src="/rocket.png" alt="" fill className="object-contain" />
               </div>
-              <div className="absolute -right-4 top-28 w-28 h-28 animate-float-icon-2">
+              <div className="absolute -right-4 top-8 w-28 h-28 animate-float-icon-2">
                 <Image src="/msg.png" alt="" fill className="object-contain" />
               </div>
               <div className="absolute -left-4 bottom-16 w-20 h-20 animate-float-icon-3">
