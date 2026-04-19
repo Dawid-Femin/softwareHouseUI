@@ -9,8 +9,24 @@ import { ThemeProvider } from '@/components/layout/ThemeProvider';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Software House',
-  description: 'Professional software development services',
+  title: {
+    default: 'Software House',
+    template: '%s | Software House',
+  },
+  description: 'Profesjonalny software house – tworzymy aplikacje webowe i mobilne.',
+  metadataBase: new URL(process.env.SITE_URL || 'https://example.com'),
+  openGraph: {
+    type: 'website',
+    locale: 'pl_PL',
+    siteName: 'Software House',
+    title: 'Software House',
+    description: 'Profesjonalny software house – tworzymy aplikacje webowe i mobilne.',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Software House',
+    description: 'Profesjonalny software house – tworzymy aplikacje webowe i mobilne.',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
