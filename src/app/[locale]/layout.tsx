@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import '@/styles/globals.css';
 import { Analytics } from '@vercel/analytics/next';
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
 import { Footer } from '@/components/layout/Footer';
 import { Header } from '@/components/layout/Header';
 import { ThemeProvider } from '@/components/layout/ThemeProvider';
@@ -17,7 +19,6 @@ export const metadata: Metadata = {
   metadataBase: new URL(process.env.SITE_URL || 'https://example.com'),
   openGraph: {
     type: 'website',
-    locale: 'en_US',
     siteName: 'Software House',
     title: 'Software House',
     description: 'Professional software house – we build web and mobile applications.',
@@ -29,17 +30,28 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const messages = await getMessages();
+
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <body className={inter.className}>
-        <ThemeProvider>
-          <div className="flex flex-col min-h-screen">
-            <Header />
-            {children}
-            <Footer />
-          </div>
-        </ThemeProvider>
+        <NextIntlClientProvider messages={messages}>
+          <ThemeProvider>
+            <div className="flex flex-col min-h-screen">
+              <Header />
+              {children}
+              <Footer />
+            </div>
+          </ThemeProvider>
+        </NextIntlClientProvider>
         <Analytics />
       </body>
     </html>

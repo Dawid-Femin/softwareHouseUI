@@ -1,0 +1,45 @@
+{
+  "nav": {
+    "about": "O nas",
+    "services": "Usługi",
+    "portfolio": "Portfolio",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "title": "Tworzymy nowoczesne rozwiązania",
+    "subtitle": "Profesjonalny software house specjalizujący się w tworzeniu aplikacji webowych i mobilnych."
+  },
+  "about": {
+    "title": "O nas",
+    "body": "[Placeholder]"
+  },
+  "services": {
+    "title": "Usługi",
+    "items": {
+      "web": "Aplikacje webowe",
+      "mobile": "Aplikacje mobilne",
+      "consulting": "Konsultacje IT"
+    },
+    "placeholder": "[Placeholder]"
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "placeholder": "[Placeholder]"
+  },
+  "contact": {
+    "title": "Kontakt",
+    "name": "Imię i nazwisko",
+    "email": "Email",
+    "message": "Wiadomość",
+    "submit": "Wyślij wiadomość",
+    "submitting": "Wysyłanie...",
+    "errors": {
+      "nameMin": "Imię musi mieć co najmniej 2 znaki",
+      "emailInvalid": "Nieprawidłowy adres email",
+      "messageMin": "Wiadomość musi mieć co najmniej 10 znaków"
+    }
+  },
+  "footer": {
+    "rights": "Wszelkie prawa zastrzeżone."
+  }
+}

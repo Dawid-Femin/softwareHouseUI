@@ -1,0 +1,45 @@
+{
+  "nav": {
+    "about": "About",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "We build modern software solutions",
+    "subtitle": "A professional software house specializing in web and mobile application development."
+  },
+  "about": {
+    "title": "About Us",
+    "body": "[Placeholder]"
+  },
+  "services": {
+    "title": "Services",
+    "items": {
+      "web": "Web Applications",
+      "mobile": "Mobile Applications",
+      "consulting": "IT Consulting"
+    },
+    "placeholder": "[Placeholder]"
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "placeholder": "[Placeholder]"
+  },
+  "contact": {
+    "title": "Contact",
+    "name": "Full name",
+    "email": "Email",
+    "message": "Message",
+    "submit": "Send message",
+    "submitting": "Sending...",
+    "errors": {
+      "nameMin": "Name must be at least 2 characters",
+      "emailInvalid": "Invalid email address",
+      "messageMin": "Message must be at least 10 characters"
+    }
+  },
+  "footer": {
+    "rights": "All rights reserved."
+  }
+}
