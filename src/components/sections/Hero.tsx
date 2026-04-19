@@ -60,6 +60,7 @@ export function Hero() {
                 src="/pngegg.png"
                 alt="Hero"
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-contain relative z-10"
                 priority
               />
