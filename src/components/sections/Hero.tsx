@@ -76,7 +76,7 @@ export function Hero() {
               <div className="absolute -left-4 top-12 w-28 h-28 animate-float-icon-1">
                 <Image src="/rocket.png" alt="" fill className="object-contain" />
               </div>
-              <div className="absolute -right-4 top-20 w-28 h-28 animate-float-icon-2">
+              <div className="absolute -right-4 top-28 w-28 h-28 animate-float-icon-2">
                 <Image src="/msg.png" alt="" fill className="object-contain" />
               </div>
               <div className="absolute -left-4 bottom-16 w-20 h-20 animate-float-icon-3">
@@ -88,7 +88,7 @@ export function Hero() {
                 alt="Hero"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-contain relative z-10 animate-float-image"
+                className="object-contain relative z-10 animate-float-image scale-x-[-1]"
                 priority
               />
             </div>
