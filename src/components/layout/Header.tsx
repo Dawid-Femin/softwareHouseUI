@@ -9,17 +9,17 @@ export function Header() {
           Software House
         </Link>
         <nav className="flex items-center gap-6">
-          <Link href="#about" className="hover:text-primary">
-            O nas
+          <Link href="/about" className="hover:text-primary transition-colors">
+            About
           </Link>
-          <Link href="#services" className="hover:text-primary">
-            Usługi
+          <Link href="/services" className="hover:text-primary transition-colors">
+            Services
           </Link>
-          <Link href="#portfolio" className="hover:text-primary">
+          <Link href="/portfolio" className="hover:text-primary transition-colors">
             Portfolio
           </Link>
-          <Link href="#contact" className="hover:text-primary">
-            Kontakt
+          <Link href="/contact" className="hover:text-primary transition-colors">
+            Contact
           </Link>
           <ThemeToggle />
         </nav>
