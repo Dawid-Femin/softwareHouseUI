@@ -18,6 +18,24 @@
     "title": "O nas",
     "body": "[Placeholder]"
   },
+  "offer": {
+    "badge": "Dlaczego my",
+    "title": "Rozwiązania napędzające\nTwój biznes",
+    "subtitle": "Dostarczamy dopasowane rozwiązania software'owe, które pomagają Twojej firmie rosnąć.",
+    "readMore": "Czytaj więcej",
+    "service1": {
+      "title": "Aplikacje webowe",
+      "description": "Nowoczesne, szybkie i skalowalne aplikacje webowe budowane z najnowszymi technologiami."
+    },
+    "service2": {
+      "title": "Aplikacje mobilne",
+      "description": "Natywne i cross-platformowe aplikacje mobilne na iOS i Android."
+    },
+    "service3": {
+      "title": "Konsultacje IT",
+      "description": "Strategiczne doradztwo technologiczne, które pomaga podejmować właściwe decyzje."
+    }
+  },
   "services": {
     "title": "Usługi",
     "items": {

@@ -18,6 +18,24 @@
     "title": "About Us",
     "body": "[Placeholder]"
   },
+  "offer": {
+    "badge": "Why Services Us",
+    "title": "Solutions That Drive Growth\nAt Your Business",
+    "subtitle": "We deliver tailored software solutions to help your business grow and stay ahead of the competition.",
+    "readMore": "Read More",
+    "service1": {
+      "title": "Web Development",
+      "description": "Modern, fast and scalable web applications built with the latest technologies."
+    },
+    "service2": {
+      "title": "Mobile Apps",
+      "description": "Native and cross-platform mobile applications for iOS and Android."
+    },
+    "service3": {
+      "title": "IT Consulting",
+      "description": "Strategic technology consulting to help you make the right decisions."
+    }
+  },
   "services": {
     "title": "Services",
     "items": {
