@@ -55,11 +55,12 @@ export function Hero() {
 
           <FadeIn delay={0.4}>
             <div className="relative aspect-square max-w-md mx-auto">
+              <div className="absolute inset-0 bg-white/10 rounded-full scale-90" />
               <Image
-                src="/hero-img.jpg"
+                src="/pngegg.png"
                 alt="Hero"
                 fill
-                className="object-cover rounded-full"
+                className="object-cover rounded-full relative z-10"
                 priority
               />
             </div>
