@@ -60,7 +60,7 @@ export function Hero() {
                 src="/pngegg.png"
                 alt="Hero"
                 fill
-                className="object-cover rounded-full relative z-10"
+                className="object-contain relative z-10"
                 priority
               />
             </div>
