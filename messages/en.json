@@ -6,8 +6,13 @@
     "contact": "Contact"
   },
   "hero": {
-    "title": "We build modern software solutions",
-    "subtitle": "A professional software house specializing in web and mobile application development."
+    "badge": "Everything You Need To Create A Website",
+    "title": "Business Innovation With IT Services Expertise",
+    "benefit1": "Deployment and Support",
+    "benefit2": "Flexibility and Adaptability",
+    "benefit3": "Discovery and Analysis",
+    "benefit4": "Competitive Advantage",
+    "cta": "Get Started"
   },
   "about": {
     "title": "About Us",

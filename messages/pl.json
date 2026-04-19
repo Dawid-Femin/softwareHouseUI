@@ -6,8 +6,13 @@
     "contact": "Kontakt"
   },
   "hero": {
-    "title": "Tworzymy nowoczesne rozwiązania",
-    "subtitle": "Profesjonalny software house specjalizujący się w tworzeniu aplikacji webowych i mobilnych."
+    "badge": "Wszystko czego potrzebujesz do stworzenia strony",
+    "title": "Innowacje biznesowe z ekspertyzą IT",
+    "benefit1": "Wdrożenie i wsparcie",
+    "benefit2": "Elastyczność i adaptowalność",
+    "benefit3": "Odkrywanie i analiza",
+    "benefit4": "Przewaga konkurencyjna",
+    "cta": "Rozpocznij"
   },
   "about": {
     "title": "O nas",
