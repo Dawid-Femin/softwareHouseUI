@@ -54,7 +54,7 @@ export function Hero() {
           </div>
 
           <FadeIn delay={0.4}>
-            <div className="relative aspect-square max-w-md mx-auto">
+            <div className="relative aspect-square max-w-lg mx-auto">
               <div className="absolute inset-0 bg-white/10 rounded-full scale-90" />
               <Image
                 src="/pngegg.png"
