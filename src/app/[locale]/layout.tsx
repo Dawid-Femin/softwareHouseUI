@@ -7,6 +7,8 @@ import { getMessages, setRequestLocale } from 'next-intl/server';
 import { Footer } from '@/components/layout/Footer';
 import { Header } from '@/components/layout/Header';
 import { ThemeProvider } from '@/components/layout/ThemeProvider';
+import { AuthProvider } from '@/components/providers/AuthProvider';
+import { QueryProvider } from '@/components/providers/QueryProvider';
 
 const plusJakartaSans = Plus_Jakarta_Sans({ subsets: ['latin'] });
 
@@ -45,13 +47,17 @@ export default async function RootLayout({
     <html lang={locale} suppressHydrationWarning>
       <body className={plusJakartaSans.className}>
         <NextIntlClientProvider messages={messages}>
-          <ThemeProvider>
-            <div className="flex flex-col min-h-screen">
-              <Header />
-              {children}
-              <Footer />
-            </div>
-          </ThemeProvider>
+          <QueryProvider>
+            <AuthProvider>
+              <ThemeProvider>
+                <div className="flex flex-col min-h-screen">
+                  <Header />
+                  {children}
+                  <Footer />
+                </div>
+              </ThemeProvider>
+            </AuthProvider>
+          </QueryProvider>
         </NextIntlClientProvider>
         <Analytics />
       </body>
