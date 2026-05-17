@@ -68,6 +68,19 @@
   "brands": {
     "title": "Ponad 1000 marek nam ufa"
   },
+  "dashboard": {
+    "menu": "Menu",
+    "users": "Użytkownicy",
+    "email": "Email",
+    "role": "Rola",
+    "createdAt": "Data utworzenia",
+    "loading": "Ładowanie...",
+    "noUsers": "Brak użytkowników",
+    "createUser": "Utwórz użytkownika",
+    "creating": "Tworzenie...",
+    "roleAdmin": "Admin",
+    "roleClient": "Klient"
+  },
   "auth": {
     "login": "Zaloguj się",
     "logout": "Wyloguj się",

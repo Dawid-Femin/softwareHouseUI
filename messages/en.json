@@ -68,6 +68,19 @@
   "brands": {
     "title": "1k + Brands Trust Us"
   },
+  "dashboard": {
+    "menu": "Menu",
+    "users": "Users",
+    "email": "Email",
+    "role": "Role",
+    "createdAt": "Created at",
+    "loading": "Loading...",
+    "noUsers": "No users found",
+    "createUser": "Create user",
+    "creating": "Creating...",
+    "roleAdmin": "Admin",
+    "roleClient": "Client"
+  },
   "auth": {
     "login": "Log in",
     "logout": "Log out",
