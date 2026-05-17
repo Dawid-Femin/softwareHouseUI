@@ -70,6 +70,7 @@
   },
   "dashboard": {
     "menu": "Menu",
+    "account": "Account",
     "users": "Users",
     "email": "Email",
     "role": "Role",
