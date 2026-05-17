@@ -5,8 +5,24 @@ import { type AuthTokens, authApi } from '@/lib/auth';
 
 const REFRESH_KEY = 'refreshToken';
 
+interface JwtUser {
+  id: string;
+  email: string;
+  role: 'admin' | 'client';
+}
+
+function decodeJwt(token: string): JwtUser | null {
+  try {
+    const payload = JSON.parse(atob(token.split('.')[1]));
+    return { id: payload.sub, email: payload.email, role: payload.role };
+  } catch {
+    return null;
+  }
+}
+
 interface AuthState {
   accessToken: string | null;
+  user: JwtUser | null;
   isLoading: boolean;
 }
 
@@ -17,8 +33,16 @@ interface AuthContextValue extends AuthState {
 
 const AuthContext = createContext<AuthContextValue | null>(null);
 
+function tokensToState(tokens: AuthTokens): AuthState {
+  return {
+    accessToken: tokens.accessToken,
+    user: decodeJwt(tokens.accessToken),
+    isLoading: false,
+  };
+}
+
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const [state, setState] = useState<AuthState>({ accessToken: null, isLoading: true });
+  const [state, setState] = useState<AuthState>({ accessToken: null, user: null, isLoading: true });
   const refreshTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const scheduleRefresh = useCallback((token: string, delayMs = 14 * 60 * 1000) => {
@@ -27,10 +51,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       try {
         const tokens = await authApi.refresh(token);
         localStorage.setItem(REFRESH_KEY, tokens.refreshToken);
-        setState({ accessToken: tokens.accessToken, isLoading: false });
+        setState(tokensToState(tokens));
         scheduleRefresh(tokens.refreshToken);
       } catch {
-        setState({ accessToken: null, isLoading: false });
+        setState({ accessToken: null, user: null, isLoading: false });
         localStorage.removeItem(REFRESH_KEY);
       }
     }, delayMs);
@@ -39,19 +63,19 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const stored = localStorage.getItem(REFRESH_KEY);
     if (!stored) {
-      setState({ accessToken: null, isLoading: false });
+      setState({ accessToken: null, user: null, isLoading: false });
       return;
     }
     authApi
       .refresh(stored)
       .then((tokens) => {
         localStorage.setItem(REFRESH_KEY, tokens.refreshToken);
-        setState({ accessToken: tokens.accessToken, isLoading: false });
+        setState(tokensToState(tokens));
         scheduleRefresh(tokens.refreshToken);
       })
       .catch(() => {
         localStorage.removeItem(REFRESH_KEY);
-        setState({ accessToken: null, isLoading: false });
+        setState({ accessToken: null, user: null, isLoading: false });
       });
     return () => {
       if (refreshTimer.current) clearTimeout(refreshTimer.current);
@@ -62,7 +86,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     async (email: string, password: string) => {
       const tokens = await authApi.login(email, password);
       localStorage.setItem(REFRESH_KEY, tokens.refreshToken);
-      setState({ accessToken: tokens.accessToken, isLoading: false });
+      setState(tokensToState(tokens));
       scheduleRefresh(tokens.refreshToken);
     },
     [scheduleRefresh]
@@ -74,7 +98,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
     if (refreshTimer.current) clearTimeout(refreshTimer.current);
     localStorage.removeItem(REFRESH_KEY);
-    setState({ accessToken: null, isLoading: false });
+    setState({ accessToken: null, user: null, isLoading: false });
   }, [state.accessToken]);
 
   return (
