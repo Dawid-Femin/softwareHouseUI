@@ -21,7 +21,7 @@
   "offer": {
     "badge": "Why Services Us",
     "title": "Solutions That Drive Growth\nAt Your Business",
-    "subtitle": "We deliver tailored software solutions to help your business grow and stay ahead of the competition.",
+    "subtitle": "We deliver software that grows your business.",
     "readMore": "Read More",
     "service1": {
       "title": "Web Development",
@@ -67,5 +67,18 @@
   },
   "brands": {
     "title": "1k + Brands Trust Us"
+  },
+  "auth": {
+    "login": "Log in",
+    "logout": "Log out",
+    "email": "Email",
+    "password": "Password",
+    "submit": "Log in",
+    "submitting": "Logging in...",
+    "errors": {
+      "emailInvalid": "Invalid email address",
+      "passwordMin": "Password must be at least 6 characters",
+      "invalid": "Invalid email or password"
+    }
   }
 }

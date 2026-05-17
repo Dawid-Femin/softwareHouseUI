@@ -21,7 +21,7 @@
   "offer": {
     "badge": "Dlaczego my",
     "title": "Rozwiązania napędzające\nTwój biznes",
-    "subtitle": "Dostarczamy dopasowane rozwiązania software'owe, które pomagają Twojej firmie rosnąć.",
+    "subtitle": "Dostarczamy software, który rozwija biznes.",
     "readMore": "Czytaj więcej",
     "service1": {
       "title": "Aplikacje webowe",
@@ -67,5 +67,18 @@
   },
   "brands": {
     "title": "Ponad 1000 marek nam ufa"
+  },
+  "auth": {
+    "login": "Zaloguj się",
+    "logout": "Wyloguj się",
+    "email": "Email",
+    "password": "Hasło",
+    "submit": "Zaloguj",
+    "submitting": "Logowanie...",
+    "errors": {
+      "emailInvalid": "Nieprawidłowy adres email",
+      "passwordMin": "Hasło musi mieć co najmniej 6 znaków",
+      "invalid": "Nieprawidłowy email lub hasło"
+    }
   }
 }
