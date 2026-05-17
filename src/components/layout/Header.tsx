@@ -1,13 +1,17 @@
 'use client';
 
-import { Search, ShoppingCart } from 'lucide-react';
+import { LogIn, LogOut, Search, ShoppingCart } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import { useAuth } from '@/components/providers/AuthProvider';
 import { Link } from '@/i18n/navigation';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { ThemeToggle } from './ThemeToggle';
 
 export function Header() {
   const t = useTranslations('nav');
+  const tAuth = useTranslations('auth');
+  const { accessToken, isLoading, logout } = useAuth();
+  const isLoggedIn = !!accessToken;
 
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b">
@@ -54,6 +58,26 @@ export function Header() {
           </button>
           <LanguageSwitcher />
           <ThemeToggle />
+          {!isLoading &&
+            (isLoggedIn ? (
+              <button
+                type="button"
+                onClick={logout}
+                className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-md hover:bg-muted transition-colors"
+                aria-label={tAuth('logout')}
+              >
+                <LogOut className="w-4 h-4" />
+                <span className="hidden md:inline">{tAuth('logout')}</span>
+              </button>
+            ) : (
+              <Link
+                href="/login"
+                className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-md hover:bg-muted transition-colors"
+              >
+                <LogIn className="w-4 h-4" />
+                <span className="hidden md:inline">{tAuth('login')}</span>
+              </Link>
+            ))}
           <Link
             href="/contact"
             className="hidden md:inline-flex px-6 py-2 bg-primary text-primary-foreground rounded-full hover:opacity-90 transition-opacity font-medium"
